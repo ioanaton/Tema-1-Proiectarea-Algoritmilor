@@ -1,0 +1,73 @@
+Ton Andreea-Ioana, 323CA
+TEMA 1 PA
+Problema 1 - Feribot
+	Pentru aceasta problema am folosit cautarea binara pentru a gasi cea
+mai mica greutate pe un feribot, care totusi respecta numarul de feriboturi.
+Pentru inceput am citit valorile care ni se dau in enunt si am apelat o
+functie care calculeaza solutia. Aceast functie face cautarea binara intre
+0 si suma greutatilor tuturor masinilor (suma maxima). Pentru fiecare 
+valoare a mijlocului de interval verifica daca cu aceasta greutate maxima 
+a feribotului se pot aranja masinile astfel incat si numarul de feriboturi
+sa fie cel corect. Functia apelata testeaza daca masina curenta mai are loc
+sau nu pe feribot, crescand numarul de feriboturi si verificand la final
+daca numarul necesar de feriboturi corespunde cu nr de feriboturi disponibile.
+	In cazul in care mijlocul de interval este o solutie corecta se
+verifica daca o greutate mai mica este de asemenea o solutie corecta, in caz
+contrar se returneaza mijlocul curent ca solutie finala.
+	Complexitate: O(nlogn) (complexitate cautare binara* complexitate
+testare solutie)
+
+Problema 2 - Nostory
+	Pentru taskul 1 sortam primul vector crescator si al doilea 
+descrescator. Adunam la suma elementele din al doilea vector pana cand pentru
+o pereche de numere aflate pe aceeasi pozitie, elementul din primul vector 
+este mai mare, dupa care continuam sa adunam elementele din primul vector.
+	Pentru taskul 2 am comparat fiecare pereche de numere de pe aceeasi
+pozitie si am pus maximul din pereche in vectorul a si minimul in vectorul b,
+dupa care am sortat ambii vectori descrescator. Am facut suma elementelor 
+din primul vector, "de maxime", dupa care am parcurs vectorul a pana cand
+am gasit o valoare mai mica decat prima valoare din b. De la acel punct
+am scazut elementul din a si am adunat elementul de la inceputul vectorului
+b(de nr de mutari ori), pentru a maximiza suma.
+	Complexitate: O(nlogn) (datorita sort-urilor)
+	
+Problema 3 - Sushi
+	Pentru toate taskurile am folosit scheletul din laborator de la 
+problema rucsacului adaptat: matricea stocheaza suma tuturor notelor pana
+la momentul curent, trecand prin toate felurile de sushi disponibile.
+	Pentru al doilea task am mai adaugat o conditie, daca nu este 
+depasit pretul maxim, vom adauga de 2 ori acelasi fel de sushi, iar la
+suma totala vom adauga nota acelui fel de 2 ori.
+	Complexitate: O(m*n*x)
+	Pentru cel de-al treilea task am mai adaugat o dimensiune matricei
+pentru a avea maxim n farfurii comandate. Astfel elementul curent va primi
+suma pana in acel moment dar cu o farfurie/ 2 farfurii in minus.
+
+Problema 4 - Semnale
+	Pentru primul task remarcam faptul ca formula este combinari de 
+nr de 0 + 1 luate cate numarul de 1 ori (formula vine de la cate 0 uri 
+se afla in fata fiecarei cifre de 1). Am folosit formula de combinari
+care folosete teorema lui Fermat deoarece nu putem imparti numere foarte 
+mari pentru ca rezultatul devine inexact.
+	Complexitate: O(n) (complexitatea combinarilor cu mica teorema a lui Fermat)
+	Pentru al doilea task am folosit o formula. Fixam minim (y+1)/2 
+valori de 1 iar pentru fiecare varianta cu valori fixate, punem restul de 1
+ramase astfel incat sa nu stea lipite de un grup de 1 deja format, fiind 
+inserate printre zerouri. Astfel pentru variantele cu 1 fixat, avem combinari
+de nr de zero-uri + 1 luate nr de 1 uri fixate(cate 0 uri se afla in fata
+fiecarei cifre de 1) inmultit cu nr de 1-uri fixate luate cate nr de 1-uri
+nefixate (astfel incat sa nu facem cumva grupuri de 3 1-uri lipite). Facem
+suma fiecarui astfel de produs, crescand treptat numarul de 1 fixate.
+	Complexitate: O(n^2*y/2) (produs de combinatii de cate (y+1) ori)
+
+Bonus - Badgpt
+	Pentru fiecare numar urmat de litera n sau u, exista fibonacci(n+1)
+variante, deoarece observam ca se aduna ultimele doua valori anterioare.
+Pentru calcularea numarului lui fibonacci am folosit algoritmul fast fibonacci
+deoarece calcularea clasica a vectorului lua prea mult timp. Pentru fiecare 
+litera gasita inmulteam numarul lui fibonacci gasit cu numarul total de
+variante gasit pana acum si returnam raspunsul final.
+
+	Complexitate: O(xlogn) (long n de la fast fibonacci si x este nr de
+u-uri si n-uri)
+
